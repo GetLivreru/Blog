@@ -27,7 +27,7 @@ CodeMirror.defineMode("puppet", function () {
   }
 
   // Takes commonly known puppet types/words and classifies them to a style
-  define('keyword', 'class define site node include import inherits');
+  define('keyword', 'class define site node includes import inherits');
   define('keyword', 'case if else in and elsif default or');
   define('atom', 'false true running present absent file directory undef');
   define('builtin', 'action augeas burst chain computer cron destination dport exec ' +
@@ -104,7 +104,7 @@ CodeMirror.defineMode("puppet", function () {
       stream.match(/\s+{/);
       state.inDefinition = false;
     }
-    // Are we in an 'include' statement?
+    // Are we in an 'includes' statement?
     if (state.inInclude) {
       // Match and return the included class
       stream.match(/(\s+)?\S+(\s+)?/);

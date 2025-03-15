@@ -429,7 +429,7 @@ function _addToZip( zip, obj ) {
 
 			// Fix IE's XML
 			if ( _ieExcel ) {
-				// IE doesn't include the XML declaration
+				// IE doesn't includes the XML declaration
 				if ( str.indexOf( '<?xml' ) === -1 ) {
 					str = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>'+str;
 				}
@@ -1181,13 +1181,13 @@ DataTable.ext.buttons.excelHtml5 = {
 			addRow( data.header, rowPos );
 			$('row:last c', rels).attr( 's', '2' ); // bold
 		}
-	
+
 		dataStartRow = rowPos;
 
 		for ( var n=0, ie=data.body.length ; n<ie ; n++ ) {
 			addRow( data.body[n], rowPos );
 		}
-	
+
 		dataEndRow = rowPos;
 
 		if ( config.footer && data.footer ) {

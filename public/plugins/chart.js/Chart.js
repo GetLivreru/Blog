@@ -1528,7 +1528,7 @@ function getAlpha(string) {
 // generators
 function hexString(rgba, a) {
    var a = (a !== undefined && rgba.length === 3) ? a : rgba[3];
-   return "#" + hexDouble(rgba[0]) 
+   return "#" + hexDouble(rgba[0])
               + hexDouble(rgba[1])
               + hexDouble(rgba[2])
               + (
@@ -8456,7 +8456,7 @@ function getTooltipSize(tooltip, model) {
 	ctx.font = helpers$1.fontString(bodyFontSize, model._bodyFontStyle, model._bodyFontFamily);
 	helpers$1.each(model.beforeBody.concat(model.afterBody), maxLineWidth);
 
-	// Body lines may include some extra width due to the color box
+	// Body lines may includes some extra width due to the color box
 	widthPadding = model.displayColors ? (bodyFontSize + 2) : 0;
 	helpers$1.each(body, function(bodyItem) {
 		helpers$1.each(bodyItem.before, maxLineWidth);

@@ -1829,7 +1829,7 @@
             CodeMirror.signal(cm, "vim-mode-change", {mode: "visual", subMode: ""});
           }
 
-          // If we're currently in visual mode, we should extend the selection to include
+          // If we're currently in visual mode, we should extend the selection to includes
           // the search result.
           var anchor = vim.sel.anchor;
           if (anchor) {
@@ -2081,7 +2081,7 @@
           }
         }
         if (ch < lineText.length) {
-          // Only include angle brackets in analysis if they are being matched.
+          // Only includes angle brackets in analysis if they are being matched.
           var re = (ch === '<' || ch === '>') ? /[(){}[\]<>]/ : /[(){}[\]]/;
           var matched = cm.findMatchingBracket(Pos(line, ch), {bracketRegex: re});
           return matched.to;
@@ -2291,7 +2291,7 @@
         var repeat = (vim.visualMode) ? args.repeat : 1;
         if (args.linewise) {
           // The only way to delete a newline is to delete until the start of
-          // the next line, so in linewise mode evalInput will include the next
+          // the next line, so in linewise mode evalInput will includes the next
           // line. We don't want this in indent, so we go back a line.
           endLine--;
         }
@@ -3361,8 +3361,8 @@
       start++;
 
       if (inclusive) {
-        // If present, include all whitespace after word.
-        // Otherwise, include all whitespace before word, except indentation.
+        // If present, includes all whitespace after word.
+        // Otherwise, includes all whitespace before word, except indentation.
         var wordEnd = end;
         while (/\s/.test(line.charAt(end)) && end < line.length) { end++; }
         if (wordEnd == end) {
@@ -3731,7 +3731,7 @@
     function charIdxInLine(start, line, character, forward, includeChar) {
       // Search for char in line.
       // motion_options: {forward, includeChar}
-      // If includeChar = true, include it too.
+      // If includeChar = true, includes it too.
       // If forward = true, search forward, else search backwards.
       // If char is not found on this line, do nothing
       var idx;
@@ -4066,7 +4066,7 @@
         return { start: cur, end: cur };
       }
 
-      // include the symbols
+      // includes the symbols
       if (inclusive) {
         --start; ++end;
       }

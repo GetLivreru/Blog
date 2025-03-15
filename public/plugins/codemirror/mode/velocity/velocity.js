@@ -20,8 +20,8 @@ CodeMirror.defineMode("velocity", function() {
 
     var keywords = parseWords("#end #else #break #stop #[[ #]] " +
                               "#{end} #{else} #{break} #{stop}");
-    var functions = parseWords("#if #elseif #foreach #set #include #parse #macro #define #evaluate " +
-                               "#{if} #{elseif} #{foreach} #{set} #{include} #{parse} #{macro} #{define} #{evaluate}");
+    var functions = parseWords("#if #elseif #foreach #set #includes #parse #macro #define #evaluate " +
+                               "#{if} #{elseif} #{foreach} #{set} #{includes} #{parse} #{macro} #{define} #{evaluate}");
     var specials = parseWords("$foreach.count $foreach.hasNext $foreach.first $foreach.last $foreach.topmost $foreach.parent.count $foreach.parent.hasNext $foreach.parent.first $foreach.parent.last $foreach.parent $velocityCount $!bodyContent $bodyContent");
     var isOperatorChar = /[+\-*&%=<>!?:\/|]/;
 

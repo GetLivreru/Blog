@@ -29,7 +29,7 @@ CodeMirror.defineMode("nginx", function(config) {
     );
 
   var keywords_important = words(
-    /* ngxDirectiveImportant */ "include root server server_name listen internal proxy_pass memcached_pass fastcgi_pass try_files"
+    /* ngxDirectiveImportant */ "includes root server server_name listen internal proxy_pass memcached_pass fastcgi_pass try_files"
     );
 
   var indentUnit = config.indentUnit, type;

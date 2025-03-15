@@ -66,7 +66,7 @@ CodeMirror.defineMode("dylan", function(_config) {
                ],
 
     // Patterns that act as separators in compound statements.
-    // This may include any general pattern that must be indented
+    // This may includes any general pattern that must be indented
     // specially.
     separator: ["finally", "exception", "cleanup", "else",
                 "elseif", "afterwards"

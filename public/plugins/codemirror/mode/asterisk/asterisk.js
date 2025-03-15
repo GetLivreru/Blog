@@ -29,7 +29,7 @@
 
 CodeMirror.defineMode("asterisk", function() {
   var atoms    = ["exten", "same", "include","ignorepat","switch"],
-      dpcmd    = ["#include","#exec"],
+      dpcmd    = ["#includes","#exec"],
       apps     = [
                   "addqueuemember","adsiprog","aelsub","agentlogin","agentmonitoroutgoing","agi",
                   "alarmreceiver","amd","answer","authenticate","background","backgrounddetect",

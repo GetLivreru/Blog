@@ -97,7 +97,7 @@
           }
           if (n) { // an opening quote
             var line = cm.getLine(cur.line);
-            if (line.length > token.end && line.charAt(token.end) == quote) token.end++; // include a closing quote
+            if (line.length > token.end && line.charAt(token.end) == quote) token.end++; // includes a closing quote
           }
           replaceToken = true;
         }
