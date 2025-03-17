@@ -4834,7 +4834,7 @@ function computeFitCategoryTraits(index, ruler, options) {
 
 /**
  * Computes an "optimal" category that globally arranges bars side by side (no gap when
- * percentage options are 1), based on the previous and following categories. This mode
+ * percentage options are 1), based on the previous and following category. This mode
  * generates bars with different widths when data are not evenly spaced.
  * @private
  */
