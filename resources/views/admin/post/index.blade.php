@@ -7,7 +7,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Категории</h1>
+                        <h1 class="m-0">Пост</h1>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
@@ -53,7 +53,7 @@
                                         <td class="text-center"><a href="{{route('admin.post.show',$post->id)}}"><i class="far fa-eye"></i></a></td>
                                         <td class="text-center"><a href="{{route('admin.post.edit',$post->id)}}"class="text-success"><i class="fas fa-pencil-alt"></i></a></td>
                                         <td class="text-center">
-                                            <form action="{{route('admin.ost.delete',$post->id)}}" method="POST">
+                                            <form action="{{route('admin.post.delete',$post->id)}}" method="POST">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="border-0 bg-transparent">

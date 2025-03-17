@@ -29,15 +29,29 @@
                 <!-- Small boxes (Stat box) -->
                 <div class="row">
                     <div class ="col-12">
-                        <form action="{{route('admin.post.store')}}" method="POST" class="w-25">
+                        <form action="{{route('admin.post.store')}}" method="POST">
                             @csrf
-                            <div class="form-group">
-                            <input type="text" class="form-control" name="title" placeholder="Название постов">
+                            <div class="form-group w-25">
+                            <input type="text" class="form-control" name="title" placeholder="Название постов"
+                            value="{{old('title')}}"
+
+                            >
+
                                 @error('title')
                                 <div class="text-danger">Это поле необходимо для заполнения</div>
                                 @enderror
                             </div>
-                            <input type="submit" class="btn btn-primary" value="Добавить">
+                            <div class="form-group">
+                                <textarea id="summernote" name="content" >
+                                    value="{{old('title')}}"
+                                </textarea>
+                                @error('content')
+                                <div class="text-danger">Это поле необходимо для заполнения</div>
+                                @enderror
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" class="btn btn-primary" value="Добавить">
+                            </div>
                         </form>
                     </div>
                     <!-- ./col -->
