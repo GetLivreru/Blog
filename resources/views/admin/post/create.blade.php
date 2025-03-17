@@ -19,10 +19,6 @@
             </div><!-- /.container-fluid -->
         </div>
         <!-- /.content-header -->
-
-
-
-
         <!-- Main content -->
         <section class="content">
             <div class="container-fluid">
@@ -33,10 +29,7 @@
                             @csrf
                             <div class="form-group w-25">
                             <input type="text" class="form-control" name="title" placeholder="Название постов"
-                            value="{{old('title')}}"
-
-                            >
-
+                            value="{{old('title')}}">
                                 @error('title')
                                 <div class="text-danger">Это поле необходимо для заполнения</div>
                                 @enderror

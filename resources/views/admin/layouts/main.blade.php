@@ -50,10 +50,7 @@
 
     <!-- Main Sidebar Container -->
     @include('admin.includes.sidebar')
-
     @yield('content')
-
-
     <footer class="main-footer">
         <strong>BLOG</strong>
     </footer>
