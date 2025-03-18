@@ -95,7 +95,10 @@
 <!-- Summernote -->
 <script src="{{asset('plugins/summernote/summernote-bs4.min.js')}}"></script>
 <!-- overlayScrollbars -->
+<script src="{{asset('plugins/bs-custom-file-input/bs-custom-file-input.min.js')}}"></script>
+
 <script src="{{asset('plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js')}}"></script>
+
 <!-- AdminLTE App -->
 <script src="dist/js/adminlte.js"></script>
 <!-- AdminLTE for demo purposes -->
@@ -115,7 +118,10 @@
                 ['height', ['height']]
                 ]
         });
-    })
+    });
+    $(function(){
+       bsCustomFileInput.init();
+    });
 </script>
 </body>
 </html>
