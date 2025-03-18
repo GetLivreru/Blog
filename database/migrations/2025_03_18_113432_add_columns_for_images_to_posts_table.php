@@ -32,7 +32,7 @@ class AddColumnsForImagesToPostsTable extends Migration
             $table->dropColumn('preview_image');
         });
         Schema::table('posts', function (Blueprint $table) {
-            //
+            //ч
             $table->dropColumn('main_image');
         });
     }
