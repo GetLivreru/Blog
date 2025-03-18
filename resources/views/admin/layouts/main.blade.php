@@ -20,6 +20,8 @@
     <link rel="stylesheet" href="{{asset('plugins/jqvmap/jqvmap.min.css')}}">
     <!-- Theme style -->
     <link rel="stylesheet" href="{{asset('dist/css/adminlte.min.css')}}">
+
+    <link rel="stylesheet" href="{{asset('plugins/select2/css/select2.min.css')}}">
     <!-- add samm pages -->
     <link rel="stylesheet" href="{{asset('plugins/summernote/summernote-bs4.min.css')}}">
     <!-- overlayScrollbars -->
@@ -70,6 +72,9 @@
 <!-- bootstrap boudle -->
 <script src="{{asset('plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+
+
+<script src="{{asset('plugins/select2/js/select2.full.min.js')}}"></script>
 <script>
     $.widget.bridge('uibutton', $.ui.button)
 </script>
@@ -99,6 +104,7 @@
 
 <script src="{{asset('plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js')}}"></script>
 
+
 <!-- AdminLTE App -->
 <script src="dist/js/adminlte.js"></script>
 <!-- AdminLTE for demo purposes -->
@@ -122,6 +128,7 @@
     $(function(){
        bsCustomFileInput.init();
     });
+    $('.select2').select2()
 </script>
 </body>
 </html>
