@@ -5,7 +5,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Редактирование пользователей</h1>
+                        <h1 class="m-0">EditBlade</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
@@ -16,7 +16,6 @@
                 </div>
             </div>
         </div>
-
         <section class="content">
             <div class="container-fluid">
                 <div class="row">
@@ -26,9 +25,15 @@
                             @method('PATCH')
                             <div class="form-group">
                                 <input type="text" class="form-control" name="name" placeholder="Имя пользователя"
-                                       value="{{ old('name', $user->name) }}">
+                                       value="{{ $user->name }}">
                                 @error('name')
                                 <div class="text-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
+                            <div class="form-group">
+                                <input type="text" value="{{ $user->email }}" class="form-control" name="email" placeholder="Email">
+                                @error('email')
+                                <div class="text-danger">Это поле необходимо для заполнения</div>
                                 @enderror
                             </div>
                             <input type="submit" class="btn btn-primary" value="Обновить">

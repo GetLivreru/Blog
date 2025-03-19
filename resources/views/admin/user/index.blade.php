@@ -7,7 +7,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Юзеры</h1>
+                        <h1 class="m-0">Юзеры(IndexBlade)</h1>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
@@ -46,10 +46,10 @@
                                     <tr>
                                         <td>{{$user->id}}</td>
                                         <td>{{$user->name}}</td>
-                                        <td class="text-center"><a href="{{route('admin.category.show',$user->id)}}"><i class="far fa-eye"></i></a></td>
-                                        <td class="text-center"><a href="{{route('admin.category.edit',$user->id)}}"class="text-success"><i class="fas fa-pencil-alt"></i></a></td>
+                                        <td class="text-center"><a href="{{route('admin.user.show',$user->id)}}"><i class="far fa-eye"></i></a></td>
+                                        <td class="text-center"><a href="{{route('admin.user.edit',$user->id)}}"class="text-success"><i class="fas fa-pencil-alt"></i></a></td>
                                         <td class="text-center">
-                                            <form action="{{route('admin.category.delete',$user->id)}}" method="POST">
+                                            <form action="{{route('admin.user.delete',$user->id)}}" method="POST">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="border-0 bg-transparent">
