@@ -29,7 +29,19 @@
                             @csrf
                             <div class="form-group">
                             <input type="text" class="form-control" name="name" placeholder="Название пользователя">
-                                @error('user')
+                                @error('name')
+                                <div class="text-danger">Это поле необходимо для заполнения</div>
+                                @enderror
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="email" placeholder="Email">
+                                @error('email')
+                                <div class="text-danger">Это поле необходимо для заполнения</div>
+                                @enderror
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="password" placeholder="Название пользователя">
+                                @error('password')
                                 <div class="text-danger">Это поле необходимо для заполнения</div>
                                 @enderror
                             </div>
