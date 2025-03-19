@@ -8,27 +8,13 @@ use App\Models\Post;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 
-class StoreController extends Controller
+class StoreController extends BaseController
 {
     public function __invoke(StoreRequest $request)
     {
-        try {
+        $data = $request->validated();
+        $this ->service->store($data);
 
-
-            $data = $request->validated();
-            $tagIds = $data['tag_ids'];
-            unset($data['tag_ids']);
-
-
-            $data['preview_image'] = Storage::disk('public')->put('/images', $data['preview_image']);
-            $data['main_image'] = Storage::disk('public')->put('/images', $data['main_image']);
-
-            $post = Post::firstOrCreate($data);
-            $post->tags()->attach($tagIds);
-        } catch (\Exception $exception) {
-            Log::error('Ошибка при создании поста: ' . $exception->getMessage());
-            return redirect()->back()->withErrors(['error' => 'Ошибка при создании поста. Проверьте данные.']);
-        }
         return redirect()->route('admin.post.index');
     }
 }
