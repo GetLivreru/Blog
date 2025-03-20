@@ -18,7 +18,7 @@ Route::group(['namespace' => 'Main'], function () {
     Route::get('/', 'IndexController');
 
 });
-Route::group(['namespace' => 'Admin','prefix' => 'admin', 'middleware'=> ['auth','admin']], function () {
+Route::group(['namespace' => 'Admin','prefix' => 'admin', 'middleware'=> ['auth','admin','verified']], function () {
     Route::group(['namespace' => 'Main'], function () {
         Route::get('/', 'IndexController');
     });
@@ -61,5 +61,5 @@ Route::group(['namespace' => 'Admin','prefix' => 'admin', 'middleware'=> ['auth'
 });
 
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 
