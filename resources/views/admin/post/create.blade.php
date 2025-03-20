@@ -69,7 +69,6 @@
                                 <div class="text-danger">{{ $message }}</div>
                                 @enderror
                             </div>
-
                             <div class="form-group w-50">
                                 <label>Выберите категорию</label>
                                 <select name="category_id" class="form-control">
@@ -83,7 +82,6 @@
                                 <div class="text-danger">{{ $message }}</div>
                                 @enderror
                             </div>
-
                             <div class="form-group">
                                 <label>Тэги</label>
                                 <select class="select2" name="tag_ids[]" multiple="multiple" data-placeholder="Выберите тэги"
