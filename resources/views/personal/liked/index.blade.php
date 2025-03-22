@@ -7,7 +7,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Коменты</h1>
+                        <h1 class="m-0">Понравившиеся посты</h1>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
@@ -24,34 +24,43 @@
             <div class="container-fluid">
                 <!-- Small boxes (Stat box) -->
                 <div class="row">
-                    <div class="col-lg-3 col-6">
-                        <!-- small box -->
-                        <div class="small-box bg-info">
-                            <div class="inner">
-                                <h3> 10 </h3>
-                                <p>Понравившися посты</p>
+                    <div class ="col-6">
+                        <div class="card">
+                            <!-- /.card-header -->
+                            <div class="card-body table-responsive p-0">
+                                <table class="table table-hover text-nowrap">
+                                    <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Название</th>
+                                        <th colspan="2" class="text-center">Действие</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    @foreach($posts as $post)
+                                        <tr>
+                                            <td>{{$post->id}}</td>
+                                            <td>{{$post->title}}</td>
+                                            <td class="text-center"><a href="{{route('admin.post.show',$post->id)}}"><i class="far fa-eye"></i></a></td>
+                                            <td class="text-center"><a href="{{route('admin.post.edit',$post->id)}}"class="text-success"><i class="fas fa-pencil-alt"></i></a></td>
+                                            <td class="text-center">
+                                                <form action="{{route('personal.liked.delete',$post->id)}}" method="POST">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="border-0 bg-transparent">
+                                                        <i class="fas fa-trash text-danger" role="button"></i>
+                                                    </button>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                    </tbody>
+                                </table>
                             </div>
-                            <div class="icon">
-                                <i class="fas fa-heart"></i>
-                            </div>
-                            <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                            <!-- /.card-body -->
                         </div>
                     </div>
-                    <!-- ./col -->
-                    <div class="col-lg-3 col-6">
-                        <!-- small box -->
-                        <div class="small-box bg-success">
-                            <div class="inner">
-                                <h3>5</h3>
-                                <p>Коментарии</p>
-                            </div>
-                            <div class="icon">
-                                <i class="far fa-comment"></i>
-                            </div>
-                            <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-                        </div>
-                    </div>
-            </div><!-- /.container-fluid -->
+            </div>
             </div>
         </section>
         <!-- /.content -->
