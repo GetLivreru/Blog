@@ -20,23 +20,42 @@
                     <section class="related-posts">
                         <h2 class="section-title mb-4" data-aos="fade-up">Схожие посты</h2>
                         <div class="row">
-                            @foreach($relatedPosts as $post)
+                            @foreach($relatedPosts as $relatedPost)
                                 <div class="col-md-4" data-aos="fade-right" data-aos-delay="100">
-                                <img src="{{'storage/' . $post->main_image}}" alt="related post" class="post-thumbnail">
-                                <p class="post-category">{{$post->catgory->title}}</p>
-                                <a href="{{route('post.show',$post->id)}}"><h5 class="post-title">{{$post->title}}</h5></a>
+                                <img src="{{'storage/' . $relatedPost->main_image}}" alt="related post" class="post-thumbnail">
+                                <p class="post-category">{{$relatedPost->catgory->title}}</p>
+                                <a href="{{route('post.show',$relatedPost->id)}}"><h5 class="post-title">{{$relatedPost->title}}</h5></a>
                             </div>
                             @endforeach
                         </div>
                     </section>
+                    <section class="comment-list mb-5">
+                        <h2 class="section-title mb-5" data-aos="fade-up">Коментарии ({{$post->comments->count()}})</h2>
+                        @foreach($post->comments as $comment)
+                        <div class="comment-text mb-3">
+                            <span class="username">
+                                <div>
+                                    {{$comment->user->name}}
+                                </div>
+                                <span class="text-muted float-right">
+                                        {{$comment->dateAsCarbon->diffForHumans()}}
+                                </span>
+                            </span>
+                            {{$comment->message}}
+                        </div>
+                        @endforeach
+                    </section>
+                    @auth()
                     <section class="comment-section">
-                        <h2 class="section-title mb-5" data-aos="fade-up">Leave a Reply</h2>
-                        <form action="/" method="post">
+                        <h2 class="section-title mb-5" data-aos="fade-up">Отправить коментарии</h2>
+                        <form action="{{route('post.comment.store',$post->id)}}" method="post">
+                            @csrf
                             <div class="row">
                                 <div class="form-group col-12" data-aos="fade-up">
                                     <label for="comment" class="sr-only">Comment</label>
-                                    <textarea name="comment" id="comment" class="form-control" placeholder="Comment" rows="10">Comment</textarea>
+                                    <textarea name="message" id="comment" class="form-control" placeholder="Напишите коментарий!" rows="10">Comment</textarea>
                                 </div>
+                                <input type="hidden" name="post_id" value="{{$post->id}}">
                             </div>
                             <div class="row">
                                 <div class="form-group col-md-4" data-aos="fade-right">
@@ -54,11 +73,12 @@
                             </div>
                             <div class="row">
                                 <div class="col-12" data-aos="fade-up">
-                                    <input type="submit" value="Send Message" class="btn btn-warning">
+                                    <input type="submit" value="Добавить" class="btn btn-warning">
                                 </div>
                             </div>
                         </form>
                     </section>
+                    @endauth
                 </div>
             </div>
         </div>
