@@ -33,7 +33,8 @@ Route::group(['namespace' => 'Post','prefix'=>'posts'], function () {
 Route::group(['namespace' => 'Personal','prefix' => 'personal', 'middleware'=> ['auth','verified']], function () {
     Route::group(['namespace' => 'Main','prefix'=> 'main'], function () {
     Route::get('/', 'IndexController')->name('personal.main.index');
-        });
+
+});
 
 Route::group(['namespace' => 'Liked','prefix'=>'likes'], function () {
     Route::get('/', 'IndexController')->name('personal.liked.index');
