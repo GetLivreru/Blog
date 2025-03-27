@@ -97,3 +97,5 @@ Route::group(['namespace' => 'User', 'prefix' => 'users'], function () {
 
     Auth::routes(['verify' => true]);
 
+Route::get('/redis-test', [App\Http\Controllers\RedisTestController::class, 'test']);
+
