@@ -1,79 +1,120 @@
-# Blog на Laravel
+# Laravel Blog
 
-Этот проект представляет собой блог, разработанный с использованием фреймворка Laravel.
+This project is a blog developed using the Laravel framework, with Docker support and a bot system for activity simulation.
 
-## Начало работы
+## Getting Started
 
-Следуйте инструкциям ниже, чтобы развернуть проект локально.
+Follow the instructions below to deploy the project locally.
 
-### Предварительные требования
+### Prerequisites
 
-- PHP версии 7.4 или выше
-- Composer
-- Менеджер баз данных (например, MySQL или PostgreSQL)
-- Node.js и npm
+- Docker and Docker Compose
+- Git
 
-### Установка
+### Installation
 
-1. **Клонируйте репозиторий:**
+1. **Clone the repository:**
    ```bash
    git clone https://github.com/GetLivreru/Blog.git
    ```
 
-2. **Перейдите в директорию проекта:**
+2. **Navigate to the project directory:**
    ```bash
    cd Blog
    ```
 
-3. **Установите зависимости PHP:**
-   ```bash
-   composer install
-   ```
-
-4. **Создайте файл конфигурации окружения:**
+3. **Create environment configuration file:**
    ```bash
    cp .env.example .env
    ```
 
-5. **Сгенерируйте ключ приложения:**
+4. **Start Docker containers:**
    ```bash
-   php artisan key:generate
+   docker-compose up -d
    ```
 
-6. **Настройте параметры подключения к базе данных в файле `.env`.**
-
-7. **Выполните миграции базы данных:**
+5. **Install PHP dependencies:**
    ```bash
-   php artisan migrate
+   docker exec -it laravel_app composer install
    ```
 
-8. **Установите зависимости Node.js:**
+6. **Generate application key:**
    ```bash
-   npm install
+   docker exec -it laravel_app php artisan key:generate
    ```
 
-9. **Соберите фронтенд ресурсы:**
+7. **Run database migrations:**
    ```bash
-   npm run dev
+   docker exec -it laravel_app php artisan migrate
    ```
 
-10. **Запустите локальный сервер разработки:**
-    ```bash
-    php artisan serve
-    ```
+8. **Install Node.js dependencies and build frontend:**
+   ```bash
+   docker exec -it laravel_app npm install
+   docker exec -it laravel_app npm run dev
+   ```
 
-Теперь приложение будет доступно по адресу `http://localhost:8000`.
+The application will now be available at `http://localhost:8000`.
 
-## Структура проекта
+## Bot Management
 
-- `app/` — содержит основной код приложения
-- `bootstrap/` — инициализация фреймворка
-- `config/` — файлы конфигурации
-- `database/` — миграции и сиды базы данных
-- `public/` — публично доступные файлы и точка входа в приложение
-- `resources/` — представления и ресурсы (CSS, JS)
-- `routes/` — файлы маршрутов
-- `storage/` — компилированные шаблоны, сессии, кэш и файлы
-- `tests/` — тесты
+The project includes a bot system for simulating user activity. The following commands are available:
+
+- **Create bots:**
+  ```bash
+  docker exec -it laravel_app php artisan bots:manage create
+  ```
+
+- **Start bots:**
+  ```bash
+  docker exec -it laravel_app php artisan bots:manage start
+  ```
+
+- **Stop bots:**
+  ```bash
+  docker exec -it laravel_app php artisan bots:manage stop
+  ```
+
+- **View bot status:**
+  ```bash
+  docker exec -it laravel_app php artisan bots:manage status
+  ```
+
+## Monitoring
+
+The project includes a monitoring system based on Prometheus and Grafana:
+
+- **Prometheus** is available at: `http://localhost:9090`
+- **Grafana** is available at: `http://localhost:3000`
+
+## Project Structure
+
+- `app/` — contains the main application code
+  - `Models/` — data models
+  - `Services/` — services, including BotService
+  - `Console/Commands/` — bot management commands
+- `bootstrap/` — framework initialization
+- `config/` — configuration files
+- `database/` — database migrations and seeders
+- `docker/` — Docker configuration
+- `public/` — publicly accessible files and application entry point
+- `resources/` — views and resources (CSS, JS)
+- `routes/` — route files
+- `storage/` — compiled templates, sessions, cache, and files
+- `tests/` — tests
+
+## Technologies
+
+- Laravel 8.x
+- Docker
+- Redis (for queues and cache)
+- Nginx
+- Prometheus
+- Grafana
+- SQLite (for development)
+
+## License
+
+MIT
 
 
