@@ -1,3 +1,12 @@
+[![PHP Version](https://img.shields.io/badge/PHP-8.1%2B-purple.svg)](https://php.net)
+[![Laravel Version](https://img.shields.io/badge/Laravel-8.x-red.svg)](https://laravel.com)
+[![Grafana Version](https://img.shields.io/badge/Grafana-8.x-orange.svg)](https://grafana.com)
+[![Docker Version](https://img.shields.io/badge/Docker-20.10%2B-blue.svg)](https://www.docker.com)
+[![Nginx Version](https://img.shields.io/badge/Nginx-1.21%2B-green.svg)](https://nginx.org)
+[![Redis Version](https://img.shields.io/badge/Redis-6.x-red.svg)](https://redis.io)
+[![Prometheus Version](https://img.shields.io/badge/Prometheus-2.x-yellow.svg)](https://prometheus.io)
+[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+
 # Laravel Blog - Technical Documentation
 
 ## System Architecture
