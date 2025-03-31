@@ -64,7 +64,7 @@
         <div class="row footer-widget-area">
             <div class="col-md-3">
                 <a href="index.html" class="footer-brand-wrapper">
-                    <img src="assets/images/logo.svg" alt="edica logo">
+                    <img src="{{asset('assets/images/logo.svg" alt="edica logo')}}">
                 </a>
                 <p class="contact-details">hello@edica.com</p>
                 <p class="contact-details">+23 3000 000 00</p>

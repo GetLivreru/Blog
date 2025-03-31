@@ -1,120 +1,154 @@
-# Laravel Blog
+# Laravel Blog - Technical Documentation
 
-This project is a blog developed using the Laravel framework, with Docker support and a bot system for activity simulation.
+## System Architecture
 
-## Getting Started
+### Core Technologies
+- **Backend Framework**: Laravel 8.x (PHP 7.3|8.0)
+- **Frontend Stack**: Laravel UI with Vue.js
+- **Database**: SQLite (Development)
+- **Cache & Queue System**: Redis
+- **Web Server**: Nginx
+- **Containerization**: Docker & Docker Compose
+- **Monitoring Stack**: Prometheus + Grafana
 
-Follow the instructions below to deploy the project locally.
+### System Components
 
-### Prerequisites
+#### 1. Application Layer
+- **Framework**: Laravel 8.x with MVC architecture
+- **Authentication**: Laravel Sanctum for API authentication
+- **CORS**: Fruitcake/Laravel-CORS for cross-origin resource sharing
+- **Development Tools**: 
+  - Laravel Tinker for REPL
+  - Laravel Sail for Docker development
+  - PHPUnit for testing
 
-- Docker and Docker Compose
+#### 2. Infrastructure Layer
+- **Container Orchestration**: Docker Compose v3.8
+- **Service Architecture**:
+  - PHP-FPM Application Container
+  - Nginx Web Server
+  - Redis Cache/Queue
+  - Prometheus Metrics Collector
+  - Grafana Visualization
+
+#### 3. Monitoring & Observability
+- **Metrics Collection**: Prometheus
+  - Custom metrics endpoints
+  - Time-series data storage
+- **Visualization**: Grafana
+  - Custom dashboards
+  - Real-time monitoring
+  - Alert management
+
+#### 4. Bot System Architecture
+- **Command Pattern**: Laravel Artisan Commands
+- **Service Layer**: BotService implementation
+- **Queue Management**: Redis-backed job queues
+- **Activity Simulation**: Automated user behavior patterns
+
+## Technical Implementation Details
+
+### 1. Container Configuration
+```yaml
+Services:
+  - app: PHP-FPM Application
+  - nginx: Web Server
+  - redis: Cache/Queue
+  - prometheus: Metrics
+  - grafana: Visualization
+```
+
+### 2. Development Environment
+- **PHP Extensions**: Custom configured in Dockerfile
+- **Development Tools**: 
+  - Composer for PHP dependencies
+  - NPM for frontend assets
+  - Laravel Mix for asset compilation
+
+### 3. Performance Optimizations
+- Redis caching layer
+- Queue system for background jobs
+- Asset compilation and optimization
+- Database query optimization
+
+### 4. Security Implementation
+- Laravel Sanctum for API security
+- CORS policy configuration
+- Environment-based configuration
+- Secure headers implementation
+
+## Monitoring & Metrics
+
+### Prometheus Integration
+- Custom metrics endpoints
+- System resource monitoring
+- Application performance metrics
+- Bot activity tracking
+
+### Grafana Dashboards
+- System health monitoring
+- Application performance metrics
+- Bot activity visualization
+- Resource utilization tracking
+
+## Development Workflow
+
+### Local Development
+1. Docker-based development environment
+2. Hot-reload enabled for frontend
+3. Automated testing setup
+4. Development tools integration
+
+### Deployment Pipeline
+1. Container-based deployment
+2. Environment configuration
+3. Database migration handling
+4. Asset compilation
+
+## Technical Requirements
+
+### System Requirements
+- Docker Engine 20.10+
+- Docker Compose 2.0+
+- 4GB RAM minimum
+- 20GB storage space
+
+### Development Requirements
+- PHP 7.3|8.0
+- Node.js 14+
+- Composer 2.0+
 - Git
 
-### Installation
+## Performance Considerations
 
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/GetLivreru/Blog.git
-   ```
+### Caching Strategy
+- Redis-based caching
+- Query result caching
+- View caching
+- Route caching
 
-2. **Navigate to the project directory:**
-   ```bash
-   cd Blog
-   ```
+### Queue Management
+- Redis-backed queues
+- Job batching
+- Failed job handling
+- Queue monitoring
 
-3. **Create environment configuration file:**
-   ```bash
-   cp .env.example .env
-   ```
+## Security Measures
 
-4. **Start Docker containers:**
-   ```bash
-   docker-compose up -d
-   ```
+### Authentication
+- Token-based authentication
+- Session management
+- CSRF protection
+- Rate limiting
 
-5. **Install PHP dependencies:**
-   ```bash
-   docker exec -it laravel_app composer install
-   ```
-
-6. **Generate application key:**
-   ```bash
-   docker exec -it laravel_app php artisan key:generate
-   ```
-
-7. **Run database migrations:**
-   ```bash
-   docker exec -it laravel_app php artisan migrate
-   ```
-
-8. **Install Node.js dependencies and build frontend:**
-   ```bash
-   docker exec -it laravel_app npm install
-   docker exec -it laravel_app npm run dev
-   ```
-
-The application will now be available at `http://localhost:8000`.
-
-## Bot Management
-
-The project includes a bot system for simulating user activity. The following commands are available:
-
-- **Create bots:**
-  ```bash
-  docker exec -it laravel_app php artisan bots:manage create
-  ```
-
-- **Start bots:**
-  ```bash
-  docker exec -it laravel_app php artisan bots:manage start
-  ```
-
-- **Stop bots:**
-  ```bash
-  docker exec -it laravel_app php artisan bots:manage stop
-  ```
-
-- **View bot status:**
-  ```bash
-  docker exec -it laravel_app php artisan bots:manage status
-  ```
-
-## Monitoring
-
-The project includes a monitoring system based on Prometheus and Grafana:
-
-- **Prometheus** is available at: `http://localhost:9090`
-- **Grafana** is available at: `http://localhost:3000`
-
-## Project Structure
-
-- `app/` — contains the main application code
-  - `Models/` — data models
-  - `Services/` — services, including BotService
-  - `Console/Commands/` — bot management commands
-- `bootstrap/` — framework initialization
-- `config/` — configuration files
-- `database/` — database migrations and seeders
-- `docker/` — Docker configuration
-- `public/` — publicly accessible files and application entry point
-- `resources/` — views and resources (CSS, JS)
-- `routes/` — route files
-- `storage/` — compiled templates, sessions, cache, and files
-- `tests/` — tests
-
-## Technologies
-
-- Laravel 8.x
-- Docker
-- Redis (for queues and cache)
-- Nginx
-- Prometheus
-- Grafana
-- SQLite (for development)
+### Data Protection
+- Environment-based configuration
+- Secure headers
+- Input validation
+- XSS protection
 
 ## License
 
-MIT
+MIT License - See LICENSE file for details
 
 
