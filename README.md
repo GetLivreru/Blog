@@ -15,10 +15,10 @@
 - **Backend Framework**: Laravel 8.x (PHP 7.3|8.0)
 - **Frontend Stack**: Laravel UI with Vue.js
 - **Database**: SQLite (Development)
-- **Cache & Queue System**: Redis
-- **Web Server**: Nginx
-- **Containerization**: Docker & Docker Compose
-- **Monitoring Stack**: Prometheus + Grafana
+- **Cache & Queue System**: Redis [![Redis Version](https://img.shields.io/badge/Redis-6.x-red.svg)](https://redis.io)
+- **Web Server**: Nginx [![Nginx Version](https://img.shields.io/badge/Nginx-1.21%2B-green.svg)](https://nginx.org)
+- **Containerization**: Docker & Docker Compose [![Docker Version](https://img.shields.io/badge/Docker-20.10%2B-blue.svg)](https://www.docker.com)
+- **Monitoring Stack**: Prometheus + Grafana [![Prometheus Version](https://img.shields.io/badge/Prometheus-2.x-yellow.svg)](https://prometheus.io) [![Grafana Version](https://img.shields.io/badge/Grafana-8.x-orange.svg)](https://grafana.com)
 
 ### System Components
 
