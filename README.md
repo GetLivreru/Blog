@@ -32,6 +32,28 @@
 | tags | id | - |
 | post_tag | id | post_id → posts(id), tag_id → tags(id) |
 
+#### User Interaction
+| Table | Primary Key | Foreign Keys |
+|-------|-------------|--------------|
+| post_user_likes | id | user_id → users(id), post_id → posts(id) |
+
+#### Authentication & API
+| Table | Primary Key | Foreign Keys |
+|-------|-------------|--------------|
+| personal_access_tokens | id | tokenable_id → users(id) |
+| password_resets | id | email → users(email) |
+
+#### Queue & Jobs
+| Table | Primary Key | Foreign Keys |
+|-------|-------------|--------------|
+| jobs | id | - |
+| failed_jobs | id | - |
+
+#### Bot System
+| Table | Primary Key | Foreign Keys |
+|-------|-------------|--------------|
+| bots | id | - |
+
 #### Authentication & Authorization
 | Table | Primary Key | Foreign Keys |
 |-------|-------------|--------------|
@@ -52,15 +74,6 @@
 | logs | id | user_id → users(id) |
 | notifications | id | user_id → users(id) |
 
-#### Subscription System
-| Table | Primary Key | Foreign Keys |
-|-------|-------------|--------------|
-| subscriptions | id | user_id → users(id) |
-| subscribers | id | user_id → users(id) |
-| subscriber_subscription | id | subscriber_id → subscribers(id), subscription_id → subscriptions(id) |
-| subscriber_logs | id | subscriber_id → subscribers(id) |
-| subscriber_notifications | id | subscriber_id → subscribers(id) |
-| subscriber_settings | id | subscriber_id → subscribers(id) |
 
 ### System Components
 
