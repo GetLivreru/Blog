@@ -1,24 +1,66 @@
-[![PHP Version](https://img.shields.io/badge/PHP-8.1%2B-purple.svg)](https://php.net)
+[![PHP Version](https://img.shields.io/badge/PHP-7.3%2B-purple.svg)](https://www.php.net)
 [![Laravel Version](https://img.shields.io/badge/Laravel-8.x-red.svg)](https://laravel.com)
 [![Grafana Version](https://img.shields.io/badge/Grafana-8.x-orange.svg)](https://grafana.com)
 [![Docker Version](https://img.shields.io/badge/Docker-20.10%2B-blue.svg)](https://www.docker.com)
 [![Nginx Version](https://img.shields.io/badge/Nginx-1.21%2B-green.svg)](https://nginx.org)
 [![Redis Version](https://img.shields.io/badge/Redis-6.x-red.svg)](https://redis.io)
 [![Prometheus Version](https://img.shields.io/badge/Prometheus-2.x-yellow.svg)](https://prometheus.io)
-[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 # Laravel Blog - Technical Documentation
 
 ## System Architecture
 
 ### Core Technologies
-- **Backend Framework**: Laravel 8.x (PHP 7.3|8.0)
-- **Frontend Stack**: Laravel UI with Vue.js
-- **Database**: SQLite (Development)
+- **Framework**: Laravel 8.x [![Laravel Version](https://img.shields.io/badge/Laravel-8.x-red.svg)](https://laravel.com)
+- **PHP Version**: 7.3+ [![PHP Version](https://img.shields.io/badge/PHP-7.3%2B-purple.svg)](https://www.php.net)
 - **Cache & Queue System**: Redis [![Redis Version](https://img.shields.io/badge/Redis-6.x-red.svg)](https://redis.io)
 - **Web Server**: Nginx [![Nginx Version](https://img.shields.io/badge/Nginx-1.21%2B-green.svg)](https://nginx.org)
 - **Containerization**: Docker & Docker Compose [![Docker Version](https://img.shields.io/badge/Docker-20.10%2B-blue.svg)](https://www.docker.com)
 - **Monitoring Stack**: Prometheus + Grafana [![Prometheus Version](https://img.shields.io/badge/Prometheus-2.x-yellow.svg)](https://prometheus.io) [![Grafana Version](https://img.shields.io/badge/Grafana-8.x-orange.svg)](https://grafana.com)
+
+### Database Structure
+
+#### Core Tables
+| Table | Primary Key | Foreign Keys |
+|-------|-------------|--------------|
+| users | id | - |
+| posts | id | user_id → users(id) |
+| comments | id | user_id → users(id), post_id → posts(id) |
+| categories | id | - |
+| post_category | id | post_id → posts(id), category_id → categories(id) |
+| tags | id | - |
+| post_tag | id | post_id → posts(id), tag_id → tags(id) |
+
+#### Authentication & Authorization
+| Table | Primary Key | Foreign Keys |
+|-------|-------------|--------------|
+| roles | id | - |
+| user_role | id | user_id → users(id), role_id → roles(id) |
+| permissions | id | - |
+| role_permission | id | role_id → roles(id), permission_id → permissions(id) |
+
+#### Media & Settings
+| Table | Primary Key | Foreign Keys |
+|-------|-------------|--------------|
+| media | id | user_id → users(id) |
+| settings | id | - |
+
+#### Logging & Notifications
+| Table | Primary Key | Foreign Keys |
+|-------|-------------|--------------|
+| logs | id | user_id → users(id) |
+| notifications | id | user_id → users(id) |
+
+#### Subscription System
+| Table | Primary Key | Foreign Keys |
+|-------|-------------|--------------|
+| subscriptions | id | user_id → users(id) |
+| subscribers | id | user_id → users(id) |
+| subscriber_subscription | id | subscriber_id → subscribers(id), subscription_id → subscriptions(id) |
+| subscriber_logs | id | subscriber_id → subscribers(id) |
+| subscriber_notifications | id | subscriber_id → subscribers(id) |
+| subscriber_settings | id | subscriber_id → subscribers(id) |
 
 ### System Components
 
